@@ -2,6 +2,143 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input EditUserInput {
+  email: String
+  name: String
+  phone: String
+}
+
+type Log {
+  action: String!
+  additionalContent: String!
+  apiVersion: String!
+  createdAt: DateTime!
+  id: Int!
+  moduleName: String!
+  updatedAt: DateTime!
+  userId: Int!
+}
+
+input LogsFindFilter {
+  action: String
+  additionalContent: String
+  apiVersion: String
+  moduleName: String
+  userId: Int
+}
+
+input LogsFindOrder {
+  asc: Boolean!
+  by: LogsFindOrderKeys!
+}
+
+enum LogsFindOrderKeys {
+  ACTION
+  ADDITIONAL_CONTENT
+  API_VERSION
+  CREATED_AT
+  MODULE_NAME
+  UPDATED_AT
+  USER_ID
+}
+
+type LogsWithPaging {
+  logs: [Log!]!
+  paging: PagingInfo!
+}
+
+type Mutation {
+  createUser(input: NewUserInput!): User!
+  deleteUser(userId: Int!): Boolean!
+  signIn(email: String!, password: String!): UserWithJWT!
+  updateUser(input: EditUserInput!, userId: Int!): User!
+}
+
+input NewUserInput {
+  email: String
+  name: String
+  password: String!
+  phone: String!
+}
+
+type PagingInfo {
+  currentOffset: Int!
+  take: Int!
+  totalCount: Int!
+}
+
+input PagingQuery {
+  skip: Int
+  take: Int
+}
+
 type Query {
+  findLog(logId: Int!): Log!
+  findLogs(order: [LogsFindOrder!], paging: PagingQuery, where: LogsFindFilter): LogsWithPaging!
+  findUser(userId: Int!): User!
+  findUsers(order: [UsersFindOrder!], paging: PagingQuery, where: UsersFindFilter): UsersWithPaging!
   getHello: String!
+}
+
+enum Role {
+  ADMIN
+  ROOT
+}
+
+type User {
+  createdAt: DateTime!
+  email: String
+  encryptPassword: String!
+  id: Int!
+  name: String!
+  phone: String!
+  role: Role!
+  updatedAt: DateTime!
+}
+
+type UserWithJWT {
+  createdAt: DateTime!
+  email: String
+  encryptPassword: String!
+  id: Int!
+  jwt: String!
+  name: String!
+  phone: String!
+  role: Role!
+  updatedAt: DateTime!
+}
+
+input UsersFindFilter {
+  creatorId: Int
+  email: String
+  encryptPassword: String
+  modifierId: Int
+  name: String
+  phone: String
+}
+
+input UsersFindOrder {
+  asc: Boolean!
+  by: UsersFindOrderKeys!
+}
+
+enum UsersFindOrderKeys {
+  CREATED_AT
+  CREATOR_ID
+  EMAIL
+  ENCRYPT_PASSWORD
+  MODIFIER_ID
+  NAME
+  PHONE
+  UPDATED_AT
+}
+
+type UsersWithPaging {
+  paging: PagingInfo!
+  users: [User!]!
 }

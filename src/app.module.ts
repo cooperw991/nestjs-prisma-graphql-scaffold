@@ -9,6 +9,9 @@ import { I18nModule, QueryResolver } from 'nestjs-i18n';
 
 import { HttpExceptionFilter } from '@Filter/gql-exceptions.filter';
 import { HealthModule } from '@Module/health/health.module';
+import { UserModule } from '@Module/user/user.module';
+import { LogModule } from '@Module/log/log.module';
+import { AuthModule } from '@Module/auth/auth.module';
 import { AppController } from '@/app.controller';
 import { AppService } from '@/app.service';
 import config from '@/configs/config';
@@ -56,6 +59,9 @@ import { AppResolver } from '@/app.resolver';
       resolvers: [{ use: QueryResolver, options: ['lang', 'locale', 'l'] }],
     }),
     HealthModule,
+    UserModule,
+    LogModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [

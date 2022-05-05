@@ -7,7 +7,8 @@ import compression from 'compression';
 import { PrismaService } from 'nestjs-prisma';
 
 import { AppModule } from '@/app.module';
-import { NestConfig } from '@/configs/config.interface';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { NestConfig, SwaggerConfig } from '@/configs/config.interface';
 import { loggerConfig } from '@/logger/logger.config';
 import { loggingMiddleware } from '@Middleware/logging.middleware';
 import { softDeleteMiddleware } from '@Middleware/soft-delete.middleware';
@@ -21,6 +22,17 @@ async function bootstrap() {
   const prismaService: PrismaService = app.get(PrismaService);
   prismaService.$use(loggingMiddleware);
   prismaService.$use(softDeleteMiddleware);
+
+  if (process.env.NODE_ENV !== 'production') {
+    const swaggerConfig = configService.get<SwaggerConfig>('swagger');
+    const swaggerConf = new DocumentBuilder()
+      .setTitle(swaggerConfig.title)
+      .setDescription(swaggerConfig.description)
+      .setVersion(swaggerConfig.version)
+      .build();
+    const document = SwaggerModule.createDocument(app, swaggerConf);
+    SwaggerModule.setup('restAPI', app, document);
+  }
 
   app.use(
     helmet({
