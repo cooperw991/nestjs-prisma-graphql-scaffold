@@ -12,6 +12,7 @@ import { HealthModule } from '@Module/health/health.module';
 import { UserModule } from '@Module/user/user.module';
 import { LogModule } from '@Module/log/log.module';
 import { AuthModule } from '@Module/auth/auth.module';
+import { loaders } from '@/loaders';
 import { AppController } from '@/app.controller';
 import { AppService } from '@/app.service';
 import config from '@/configs/config';
@@ -41,7 +42,10 @@ import { AppResolver } from '@/app.resolver';
             graphqlConfig.schemaDestination || './src/schema.graphql',
           debug: process.env.NODE_ENV === 'development',
           playground: process.env.NODE_ENV !== 'production',
-          context: (ctx) => ctx,
+          context: (ctx) => ({
+            ...ctx,
+            ...loaders,
+          }),
         };
       },
       inject: [ConfigService],
