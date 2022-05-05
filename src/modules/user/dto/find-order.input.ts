@@ -3,7 +3,7 @@ import { InputType, Field, registerEnumType } from '@nestjs/graphql';
 export enum UsersFindOrderKeys {
   PHONE = 'phone',
   EMAIL = 'email',
-  NAME = 'name',
+  USERNAME = 'username',
   ENCRYPT_PASSWORD = 'encryptPassword',
   CREATOR_ID = 'creatorId',
   MODIFIER_ID = 'modifierId',

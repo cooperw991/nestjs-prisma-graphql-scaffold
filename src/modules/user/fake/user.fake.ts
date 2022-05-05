@@ -9,14 +9,14 @@ export const modifierId = faker.datatype.number();
 export const newUserInput = {
   email: faker.internet.email(),
   phone: faker.phone.phoneNumber(),
-  name: faker.lorem.word(),
+  username: faker.lorem.word(),
   password: faker.lorem.word(),
 };
 
 export const editUserInput = {
   phone: faker.phone.phoneNumber(),
   email: faker.internet.email(),
-  name: faker.lorem.word(),
+  username: faker.lorem.word(),
 };
 
 export const createdUser: User = {

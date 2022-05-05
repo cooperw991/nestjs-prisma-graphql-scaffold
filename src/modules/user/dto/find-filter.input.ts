@@ -15,7 +15,7 @@ export class UsersFindFilter {
   @Field(() => String, {
     nullable: true,
   })
-  name?: string;
+  username?: string;
 
   @Field(() => String, {
     nullable: true,

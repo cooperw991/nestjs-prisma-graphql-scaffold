@@ -39,8 +39,8 @@ import { AppResolver } from '@/app.resolver';
           sortSchema: graphqlConfig.sortSchema,
           autoSchemaFile:
             graphqlConfig.schemaDestination || './src/schema.graphql',
-          debug: false,
-          playground: true,
+          debug: process.env.NODE_ENV === 'development',
+          playground: process.env.NODE_ENV !== 'production',
           context: (ctx) => ctx,
         };
       },

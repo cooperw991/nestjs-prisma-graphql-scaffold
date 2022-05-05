@@ -12,7 +12,7 @@ export class User extends BaseModel {
   email?: string;
 
   @Field(() => String)
-  name?: string;
+  username?: string;
 
   @Field(() => Role)
   role: Role;

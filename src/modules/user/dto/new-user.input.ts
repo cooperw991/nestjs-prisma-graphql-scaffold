@@ -11,7 +11,7 @@ export class NewUserInput {
   @Field(() => String, {
     nullable: true,
   })
-  name?: string;
+  username?: string;
 
   @Field(() => String)
   password: string;

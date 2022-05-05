@@ -15,5 +15,5 @@ export class EditUserInput {
   @Field(() => String, {
     nullable: true,
   })
-  name?: string;
+  username?: string;
 }
