@@ -301,3 +301,7 @@ $RECYCLE.BIN/
 # compiled output
 /dist
 /node_modules
+
+/src/configs/*.ts
+!/src/configs/*.interface.ts
+!/src/configs/*.ts.sample

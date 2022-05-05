@@ -1,0 +1,13 @@
+import { Config } from './config.interface';
+
+const config: Config = {
+  nest: {
+    port: 3001,
+    fallbackLanguage: 'cn',
+  },
+  cors: {
+    enabled: true,
+  },
+};
+
+export default (): Config => config;

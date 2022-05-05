@@ -5,5 +5,18 @@
   "testRegex": ".e2e-spec.ts$",
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "^@/(.*)$": "<rootDir>/../src/$1",
+    "^@Helper/(.*)$": "<rootDir>/../src/common/helpers/$1",
+    "^@Util/(.*)$": "<rootDir>/../src/common/utils/$1",
+    "^@Decorator/(.*)$": "<rootDir>/../src/common/decorators/$1",
+    "^@Dto/(.*)$": "<rootDir>/../src/common/dto/$1",
+    "^@Filter/(.*)$": "<rootDir>/../src/common/filters/$1",
+    "^@Middleware/(.*)$": "<rootDir>/../src/common/middlewares/$1",
+    "^@Guard/(.*)$": "<rootDir>/../src/common/guards/$1",
+    "^@Interface/(.*)$": "<rootDir>/../src/common/interfaces/$1",
+    "^@Model/(.*)$": "<rootDir>/../src/models/$1",
+    "^@Module/(.*)$": "<rootDir>/../src/modules/$1"
   }
 }

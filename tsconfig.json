@@ -5,11 +5,27 @@
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true
+    "paths": {
+      "@/*": ["src/*"],
+      "@Util/*": ["src/common/utils/*"],
+      "@Helper/*": ["src/common/helpers/*"],
+      "@Decorator/*": ["src/common/decorators/*"],
+      "@Filter/*": ["src/common/filters/*"],
+      "@Dto/*": ["src/common/dto/*"],
+      "@Guard/*": ["src/common/guards/*"],
+      "@Middleware/*": ["src/common/middlewares/*"],
+      "@Interface/*": ["src/common/interfaces/*"],
+      "@Model/*": ["src/models/*"],
+      "@Module/*": ["src/modules/*"]
+    },
+    "incremental": true,
+    "skipLibCheck": true,
+    "moduleResolution": "Node"
   }
 }
