@@ -8,6 +8,12 @@ const config: Config = {
   cors: {
     enabled: true,
   },
+  gql: {
+    playgroundEnabled: process.env.NODE_ENV !== 'production',
+    debug: process.env.NODE_ENV !== 'developement',
+    schemaDestination: './src/schema.graphql',
+    sortSchema: true,
+  },
 };
 
 export default (): Config => config;
