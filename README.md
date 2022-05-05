@@ -24,7 +24,7 @@
 
 ## Description
 
-A scaffold repo based on nestjs with [prisma](https://docs.nestjs.com/recipes/prisma#prisma) and [graphql](https://docs.nestjs.com/graphql/quick-start) integration
+A scaffold repo based on [nestjs](https://github.com/nestjs/nest) with [prisma](https://docs.nestjs.com/recipes/prisma#prisma) and [graphql](https://docs.nestjs.com/graphql/quick-start) integration
 
 ## Installation
 
