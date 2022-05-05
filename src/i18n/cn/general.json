@@ -1,0 +1,5 @@
+{
+  "INTERNAL_SERVER_ERROR": "系统错误：{action} {model} 失败，请联系系统管理员！",
+  "NOT_FOUND": "未找到 {model} {condition}: {value}",
+  "UNAUTHENTICATED": "请重新登录"
+}
