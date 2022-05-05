@@ -8,6 +8,7 @@ import { PrismaModule } from 'nestjs-prisma';
 import { I18nModule, QueryResolver } from 'nestjs-i18n';
 
 import { HttpExceptionFilter } from '@Filter/gql-exceptions.filter';
+import { HealthModule } from '@Module/health/health.module';
 import { AppController } from '@/app.controller';
 import { AppService } from '@/app.service';
 import config from '@/configs/config';
@@ -54,6 +55,7 @@ import { AppResolver } from '@/app.resolver';
       inject: [ConfigService],
       resolvers: [{ use: QueryResolver, options: ['lang', 'locale', 'l'] }],
     }),
+    HealthModule,
   ],
   controllers: [AppController],
   providers: [
