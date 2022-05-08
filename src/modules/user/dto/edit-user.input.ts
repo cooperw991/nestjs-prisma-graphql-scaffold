@@ -5,15 +5,15 @@ export class EditUserInput {
   @Field(() => String, {
     nullable: true,
   })
-  phone?: string;
+  phone: string | null;
 
   @Field(() => String, {
     nullable: true,
   })
-  email?: string;
+  email: string | null;
 
   @Field(() => String, {
     nullable: true,
   })
-  username?: string;
+  username: string | null;
 }

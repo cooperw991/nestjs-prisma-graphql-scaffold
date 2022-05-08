@@ -11,7 +11,7 @@ import { JwtPayload } from '@Interface/jwt.interface';
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly config: ConfigService) {
     super({
-      ignoreExpiration: false,
+      ignoreExpiration: process.env.NODE_ENV !== 'development',
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       secretOrKey: config.get<SecurityConfig>('security').jwtSecret,
     });

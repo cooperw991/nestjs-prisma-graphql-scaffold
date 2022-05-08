@@ -5,30 +5,30 @@ export class UsersFindFilter {
   @Field(() => String, {
     nullable: true,
   })
-  phone?: string;
+  phone: string | null;
 
   @Field(() => String, {
     nullable: true,
   })
-  email?: string;
+  email: string | null;
 
   @Field(() => String, {
     nullable: true,
   })
-  username?: string;
+  username: string | null;
 
   @Field(() => String, {
     nullable: true,
   })
-  encryptPassword?: string;
+  encryptPassword: string | null;
 
   @Field(() => Int, {
     nullable: true,
   })
-  creatorId?: number;
+  creatorId: number | null;
 
   @Field(() => Int, {
     nullable: true,
   })
-  modifierId?: number;
+  modifierId: number | null;
 }

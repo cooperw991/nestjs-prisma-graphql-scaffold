@@ -11,10 +11,9 @@ import { Logger } from '@nestjs/common';
 import { PagingQuery } from '@Dto/paging-query.input';
 import { pagingResponse, prismaPaging } from '@Util/pagination.util';
 import { generateOrderOptions, generateWhereOptions } from '@Util/query.util';
-
-import { Log } from '@prisma/client';
 import { VersionConfig } from '@/configs/config.interface';
 import { ConfigService } from '@nestjs/config';
+import { LogModel } from '../models/log.model';
 import { NewLogInput } from '../dto/new-log.input';
 import { LogsFindFilter } from '../dto/find-filter.input';
 import { LogsFindOrder } from '../dto/find-order.input';
@@ -32,7 +31,7 @@ export class LogService {
 
   public apiVersion: string;
 
-  async findLog(logId: number): Promise<Log> {
+  async findLog(logId: number): Promise<LogModel> {
     const log = this.prisma.log.findFirst({
       where: {
         id: logId,
@@ -84,7 +83,7 @@ export class LogService {
     };
   }
 
-  async createLog(input: NewLogInput): Promise<Log> {
+  async createLog(input: NewLogInput): Promise<LogModel> {
     try {
       const newLog = this.prisma.log.create({
         data: {

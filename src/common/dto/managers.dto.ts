@@ -1,12 +1,12 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import { User } from '@Module/user/models/user.model';
+import { UserModel } from '@Module/user/models/user.model';
 
 @ObjectType()
 export class Managers {
-  @Field(() => User, { nullable: true })
-  createdBy: User;
+  @Field(() => UserModel, { nullable: true })
+  createdBy: UserModel;
 
-  @Field(() => User, { nullable: true })
-  modifiedBy: User;
+  @Field(() => UserModel, { nullable: true })
+  modifiedBy: UserModel;
 }

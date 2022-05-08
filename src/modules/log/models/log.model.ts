@@ -1,9 +1,16 @@
 import { Field, ObjectType, Int } from '@nestjs/graphql';
 
-import { BaseModel } from '@Model/base.model';
-
 @ObjectType()
-export class Log extends BaseModel {
+export class LogModel {
+  @Field(() => Int)
+  id: number;
+
+  @Field(() => Date)
+  createdAt: Date;
+
+  @Field(() => Date)
+  updatedAt: Date;
+
   @Field(() => Int)
   userId: number;
 

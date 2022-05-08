@@ -6,12 +6,12 @@ export class NewUserInput {
   phone: string;
 
   @Field(() => String, { nullable: true })
-  email?: string;
+  email: string | null;
 
   @Field(() => String, {
     nullable: true,
   })
-  username?: string;
+  username: string | null;
 
   @Field(() => String)
   password: string;

@@ -20,11 +20,11 @@ export abstract class BaseModel {
   updatedAt: Date;
 
   @HideField()
-  creatorId?: number;
+  creatorId: number | null;
 
   @HideField()
-  modifierId?: number;
+  modifierId: number | null;
 
   @HideField()
-  deletedAt?: Date;
+  deletedAt: Date | null;
 }

@@ -1,9 +1,9 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import { User } from '@Module/user/models/user.model';
+import { UserModel } from '@Module/user/models/user.model';
 
 @ObjectType()
-export class UserWithJWT extends User {
+export class UserWithJWT extends UserModel {
   @Field()
   jwt: string;
 }

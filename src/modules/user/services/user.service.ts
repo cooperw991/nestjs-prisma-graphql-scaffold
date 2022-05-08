@@ -18,6 +18,7 @@ import { generateOrderOptions, generateWhereOptions } from '@Util/query.util';
 
 import { LogService } from '@Module/log/services/log.service';
 import { Role, User } from '@prisma/client';
+import { UserModel } from '../models/user.model';
 import { NewUserInput } from '../dto/new-user.input';
 import { EditUserInput } from '../dto/edit-user.input';
 import { UsersFindFilter } from '../dto/find-filter.input';
@@ -37,7 +38,7 @@ export class UserService {
 
   public moduleName: string;
 
-  async findUser(userId: number): Promise<User> {
+  async findUser(userId: number): Promise<UserModel> {
     const user = this.prisma.user.findFirst({
       where: {
         id: userId,
@@ -60,7 +61,7 @@ export class UserService {
     return user;
   }
 
-  async findUserByPhone(phone: string): Promise<User> {
+  async findUserByPhone(phone: string): Promise<UserModel> {
     const user = this.prisma.user.findFirst({
       where: {
         phone,
@@ -113,7 +114,7 @@ export class UserService {
     };
   }
 
-  async createUser(input: NewUserInput, myId: number): Promise<User> {
+  async createUser(input: NewUserInput, myId: number): Promise<UserModel> {
     await this.checkConfilct({
       phone: input.phone,
     } as User);
@@ -162,7 +163,7 @@ export class UserService {
     userId: number,
     input: EditUserInput,
     myId: number,
-  ): Promise<User> {
+  ): Promise<UserModel> {
     const { phone } = input;
     const user = await this.findUser(userId);
 

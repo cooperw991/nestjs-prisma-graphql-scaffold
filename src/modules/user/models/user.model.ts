@@ -4,15 +4,15 @@ import { BaseModel } from '@Model/base.model';
 import { Role } from '@prisma/client';
 
 @ObjectType()
-export class User extends BaseModel {
+export class UserModel extends BaseModel {
   @Field(() => String)
   phone: string;
 
   @Field(() => String, { nullable: true })
-  email?: string;
+  email: string | null;
 
   @Field(() => String)
-  username?: string;
+  username: string | null;
 
   @Field(() => Role)
   role: Role;
