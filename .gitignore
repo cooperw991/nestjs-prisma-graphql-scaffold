@@ -285,7 +285,7 @@ $RECYCLE.BIN/
 
 # if you are NOT using Zero-installs, then:
 # comment the following lines
-# !.yarn/cache
+!.yarn/cache
 
 # End of https://www.gitignore.io/api/vue,vim,node,linux,macos,emacs,windows,sublimetext,visualstudiocode
 
