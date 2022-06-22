@@ -150,10 +150,18 @@ const generateStringCondition = (key: string, value: string): any[] => {
   }
 };
 
-export const generateWhereOptions = <T>(where: T): PrismaWhereOption => {
+export const generateWhereOptions = <T>(
+  where: T,
+  ifSoftDelete = true,
+): PrismaWhereOption => {
   let whereOptions: any = {
     AND: [],
   };
+  if (ifSoftDelete) {
+    whereOptions.AND.push({
+      deletedAt: null,
+    });
+  }
   for (const key of R.keys()(where)) {
     const value = where[key];
     if (R.isNil(value)) {
