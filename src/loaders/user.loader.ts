@@ -1,8 +1,8 @@
 import DataLoader from 'dataloader';
 import R from 'ramda';
-import { PrismaClient } from '@prisma/client';
 
 import { Managers } from '@Dto/managers.dto';
+import { GlobalPrismaClient } from '../common/helpers/prisma-client.helper';
 
 export const managersLoader = () => {
   return new DataLoader(async (ids: number[][]): Promise<Managers[]> => {
@@ -11,7 +11,7 @@ export const managersLoader = () => {
       return [null, null];
     }
 
-    const prisma = new PrismaClient();
+    const prisma = GlobalPrismaClient.getInstance().prisma;
 
     const users = await prisma.user.findMany({
       where: {
