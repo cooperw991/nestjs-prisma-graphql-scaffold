@@ -6,6 +6,7 @@ import { ConfigService } from '@nestjs/config';
 
 import { SecurityConfig } from '@/configs/config.interface';
 import { JwtPayload } from '@Interface/jwt.interface';
+import { GlobalPrismaClient } from '@Helper/prisma-client.helper';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -18,7 +19,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: JwtPayload): Promise<User> {
-    const prisma = new PrismaClient();
+    const prisma = GlobalPrismaClient.getInstance().prisma;
 
     const user = await prisma.user.findFirst({
       where: {
