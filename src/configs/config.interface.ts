@@ -3,7 +3,7 @@ export interface Config {
   cors: CorsConfig;
   gql: GraphqlConfig;
   security: SecurityConfig;
-  version: VersionConfig;
+  ver: string;
   swagger: SwaggerConfig;
 }
 
@@ -30,12 +30,8 @@ export interface SecurityConfig {
   bcryptSaltOrRound: string | number;
 }
 
-export interface VersionConfig {
-  version: string;
-}
-
 export interface SwaggerConfig {
   title: string;
   description?: string;
-  version: string;
+  ver: string;
 }

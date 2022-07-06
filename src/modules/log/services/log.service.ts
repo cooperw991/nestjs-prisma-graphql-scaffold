@@ -11,7 +11,6 @@ import { Logger } from '@nestjs/common';
 import { PagingQuery } from '@Dto/paging-query.input';
 import { pagingResponse, prismaPaging } from '@Util/pagination.util';
 import { generateOrderOptions, generateWhereOptions } from '@Util/query.util';
-import { VersionConfig } from '@/configs/config.interface';
 import { ConfigService } from '@nestjs/config';
 import { LogModel } from '../models/log.model';
 import { NewLogInput } from '../dto/new-log.input';
@@ -26,7 +25,7 @@ export class LogService {
     private config: ConfigService,
     private readonly i18n: I18nRequestScopeService,
   ) {
-    this.apiVersion = this.config.get<VersionConfig>('version').version;
+    this.apiVersion = this.config.get<string>('version');
   }
 
   public apiVersion: string;
